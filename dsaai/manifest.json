@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "DSA Mentor AI",
+  "version": "1.0",
+  "description": "AI-powered DSA problem-solving assistant.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "https://leetcode.com/*",
+    "https://api.x.ai/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/problems/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
